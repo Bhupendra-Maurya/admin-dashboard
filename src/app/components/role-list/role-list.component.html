@@ -1,0 +1,27 @@
+<div class="bg-white shadow-lg rounded-lg p-6">
+    <h2 class="text-2xl font-semibold text-gray-700 mb-4">Roles</h2>
+    <table class="min-w-full leading-normal">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="py-3 px-5 text-left">Name</th>
+          <th class="py-3 px-5 text-left">Permissions</th>
+          <th class="py-3 px-5 text-left">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let role of roles; trackBy: trackByRoleId" class="border-b">
+          <td class="py-4 px-5">{{ role.name }}</td>
+          <td class="py-4 px-5">
+            <span *ngFor="let permission of role.permissions" class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
+              {{ permission.name }}
+            </span>
+          </td>
+          <td class="py-4 px-5">
+            <button (click)="editRole(role)" class="text-blue-600 hover:text-blue-900 mr-2">Edit</button>
+            <button (click)="deleteRole(role.id)" class="text-red-600 hover:text-red-900">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -5,30 +5,94 @@
       "username": "admin",
       "email": "admin@example.com",
       "isActive": true,
-      "roles": [
-        "Admin"
-      ]
+      "roles": ["Admin"]
     },
     {
       "id": "2",
       "username": "editorUser",
       "email": "editor@example.com",
       "isActive": true,
-      "roles": [
-        "Editor"
-      ]
+      "roles": ["Editor"]
     },
     {
-      "id": "062a",
+      "id": "3",
+      "username": "viewerUser",
+      "email": "viewer@example.com",
+      "isActive": true,
+      "roles": ["Viewer"]
+    },
+    {
+      "id": "4",
+      "username": "johnDoe",
+      "email": "john.doe@example.com",
+      "isActive": false,
+      "roles": ["Moderator"]
+    },
+    {
+      "id": "5",
+      "username": "aliceSmith",
+      "email": "alice.smith@example.com",
+      "isActive": true,
+      "roles": ["Admin", "Editor"]
+    },
+    {
+      "id": "6",
+      "username": "bobBrown",
+      "email": "bob.brown@example.com",
+      "isActive": true,
+      "roles": ["Contributor"]
+    },
+    {
+      "id": "7",
+      "username": "charlieWhite",
+      "email": "charlie.white@example.com",
+      "isActive": false,
+      "roles": ["Viewer"]
+    },
+    {
+      "id": "8",
+      "username": "dianaGreen",
+      "email": "diana.green@example.com",
+      "isActive": true,
+      "roles": ["Admin"]
+    },
+    {
+      "id": "9",
+      "username": "ericBlue",
+      "email": "eric.blue@example.com",
+      "isActive": true,
+      "roles": ["Moderator", "Viewer"]
+    },
+    {
+      "id": "10",
       "username": "Bhupendra",
       "email": "bpm@gmail.com",
-      "status": "active",
-      "roles": [
-        "Admin"
-      ]
+      "isActive": true,
+      "roles": ["Admin"]
     }
   ],
   "roles": [
+    {
+      "id": "1",
+      "name": "Admin",
+      "permissions": [
+        {
+          "id": "1",
+          "name": "READ",
+          "description": "Can read data"
+        },
+        {
+          "id": "2",
+          "name": "WRITE",
+          "description": "Can write data"
+        },
+        {
+          "id": "3",
+          "name": "DELETE",
+          "description": "Can delete data"
+        }
+      ]
+    },
     {
       "id": "2",
       "name": "Editor",
@@ -41,7 +105,7 @@
         {
           "id": "2",
           "name": "WRITE",
-          "description": "Can write data"
+          "description": "Can edit content"
         }
       ]
     },
@@ -52,7 +116,39 @@
         {
           "id": "1",
           "name": "READ",
-          "description": "Can read data"
+          "description": "Can view content"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Moderator",
+      "permissions": [
+        {
+          "id": "1",
+          "name": "READ",
+          "description": "Can view content"
+        },
+        {
+          "id": "4",
+          "name": "MODERATE",
+          "description": "Can moderate content"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Contributor",
+      "permissions": [
+        {
+          "id": "1",
+          "name": "READ",
+          "description": "Can view content"
+        },
+        {
+          "id": "5",
+          "name": "CREATE",
+          "description": "Can create content"
         }
       ]
     }

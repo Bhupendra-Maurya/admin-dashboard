@@ -1,0 +1,23 @@
+<div *ngIf="isOpen" class="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white p-6 rounded-lg w-96">
+    <h2 class="text-xl font-bold mb-4">Edit Role</h2>
+
+    <form>
+        <div class="mb-4">
+          <label for="roleName" class="block">Role Name</label>
+          <input [(ngModel)]="roleName" name="roleName" class="w-full px-4 py-2 border" />
+        </div>
+      
+        <div class="mb-4">
+          <label for="permissions" class="block">Permissions</label>
+          <input [(ngModel)]="rolePermissions" name="permissions" class="w-full px-4 py-2 border" />
+        </div>
+      </form>
+      
+
+    <div class="mt-4 flex justify-end">
+      <button (click)="save()" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">Save</button>
+      <button (click)="close()" class="bg-gray-500 text-white px-4 py-2 rounded">Cancel</button>
+    </div>
+  </div>
+</div>

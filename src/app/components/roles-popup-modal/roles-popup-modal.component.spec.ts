@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserListComponent } from './user-list.component';
+import { RolesPopupModalComponent } from './roles-popup-modal.component';
 
-describe('UserListComponent', () => {
-  let component: UserListComponent;
-  let fixture: ComponentFixture<UserListComponent>;
+describe('RolesPopupModalComponent', () => {
+  let component: RolesPopupModalComponent;
+  let fixture: ComponentFixture<RolesPopupModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserListComponent]
+      imports: [RolesPopupModalComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UserListComponent);
+    fixture = TestBed.createComponent(RolesPopupModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

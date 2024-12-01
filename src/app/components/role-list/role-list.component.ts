@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RoleService } from '../../services/role.service';
 import { Role } from '../../models/user.model';
@@ -9,12 +9,15 @@ import { Role } from '../../models/user.model';
   imports: [CommonModule],
   templateUrl: './role-list.component.html',
 })
-export class RoleListComponent implements OnInit {
+export class RoleListComponent implements OnInit, OnChanges {
   roles: Role[] = [];
 
   constructor(private roleService: RoleService) {}
 
   ngOnInit() {
+    this.loadRoles();
+  }
+  ngOnChanges() {
     this.loadRoles();
   }
 
@@ -36,5 +39,4 @@ export class RoleListComponent implements OnInit {
   trackByRoleId(index: number, role: Role): string {
     return role.id;
   }
-  
 }

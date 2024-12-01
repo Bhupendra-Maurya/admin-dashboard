@@ -17,6 +17,15 @@
       "roles": [
         "Editor"
       ]
+    },
+    {
+      "id": "062a",
+      "username": "Bhupendra",
+      "email": "bpm@gmail.com",
+      "status": "active",
+      "roles": [
+        "Admin"
+      ]
     }
   ],
   "roles": [
@@ -48,5 +57,4 @@
       ]
     }
   ]
-} 
-  
+}

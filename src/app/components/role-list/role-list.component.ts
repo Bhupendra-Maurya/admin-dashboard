@@ -46,6 +46,7 @@ import { CommonModule } from '@angular/common';
 import { RoleService } from '../../services/role.service';
 import { Role } from '../../models/user.model';
 import { RolesPopupModalComponent } from '../roles-popup-modal/roles-popup-modal.component';
+import { SearchBarComponent } from "../search-bar/search-bar.component";
 
 @Component({
   selector: 'app-role-list',

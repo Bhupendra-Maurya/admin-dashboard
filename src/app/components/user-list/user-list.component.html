@@ -3,6 +3,9 @@
     <h1 class="text-3xl font-bold text-gray-800">User Management</h1>
   </header>
 
+  <!-- Search Bar Component -->
+  <app-search-bar (searchChange)="filterUsers($event)"></app-search-bar>
+
   <table class="w-full table-auto border-collapse shadow-md">
     <thead class="bg-gray-800 text-white">
       <tr>
@@ -14,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users" class="hover:bg-gray-100">
+      <tr *ngFor="let user of filteredUsers" class="hover:bg-gray-100">
         <td class="border px-4 py-2">{{ user.username }}</td>
         <td class="border px-4 py-2">{{ user.email }}</td>
         <td class="border px-4 py-2">{{ user.isActive ? 'Active' : 'Inactive' }}</td>
@@ -30,5 +33,11 @@
       </tr>
     </tbody>
   </table>
-  <app-popup-modal [user]="selectedUser" [isOpen]="isModalOpen" (closeModal)="closeModal()" (saveUser)="updateUser($event)"></app-popup-modal>
+
+  <app-user-popup-modal 
+    [user]="selectedUser" 
+    [isOpen]="isModalOpen" 
+    (closeModal)="closeModal()" 
+    (saveUser)="updateUser($event)">
+  </app-user-popup-modal>
 </div>

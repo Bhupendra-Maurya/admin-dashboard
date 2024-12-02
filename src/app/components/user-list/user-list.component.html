@@ -1,11 +1,9 @@
-<div class=" min-h-screen p-6 shadow-lg rounded-lg ">
+<div class="min-h-screen p-6 shadow-lg rounded-lg">
   <header class="mb-8 border-b-2 border-gray-200 pb-4">
     <h1 class="text-3xl font-bold text-gray-800">User Management</h1>
   </header>
   <!-- Search Bar Component -->
-  <app-search-bar  (searchChange)="filterUsers($event)"
- 
-  ></app-search-bar>
+  <app-search-bar (searchChange)="filterUsers($event)"></app-search-bar>
 
   <table class="min-w-full leading-normal mt-3">
     <thead class="bg-gray-800 text-white">
@@ -14,6 +12,7 @@
         <th class="px-4 py-2">Email</th>
         <th class="px-4 py-2">Status</th>
         <th class="px-4 py-2">Roles</th>
+        <th class="px-4 py-2">Permissions</th>
         <th class="px-4 py-2">Actions</th>
       </tr>
     </thead>
@@ -22,34 +21,73 @@
       <tr *ngFor="let user of filteredUsers" class="hover:bg-gray-100">
         <td class="border px-4 py-2">{{ user.username }}</td>
         <td class="border px-4 py-2">{{ user.email }}</td>
-        <td class="border px-4 py-2 text-center">{{ user.status ? 'Active' : 'Inactive' }}</td>
+        <td class="border px-4 py-2 text-center">
+          {{ user.status === "active" ? "Active" : "Inactive" }}
+        </td>
         <td class="border px-4 py-2">
           <span *ngIf="user.roles.length > 0; else noRoles">
             <ng-container *ngFor="let role of user.roles">
-              <span class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded-full mr-1">
+              <span
+                class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded-full mr-1"
+              >
                 {{ role }}
               </span>
             </ng-container>
           </span>
           <ng-template #noRoles>
-            <span class="text-gray-500 italic">No Roles</span>
+            <span class="text-red-500 font-semibold">No Roles</span>
           </ng-template>
         </td>
-        <td class="border px-4 py-2 flex justify-center">
-          <button (click)="editUser(user)" class="bg-yellow-500 text-white px-3 py-1 rounded mr-2">Edit</button>
-          <button (click)="deleteUser(user.id)" class="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
+        <td class="border px-4 py-2">
+          <span *ngIf="user.permissions.length > 0; else noPermissions">
+            <ng-container *ngFor="let permission of user.permissions">
+              <span
+                class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded-full mr-1"
+              >
+                {{ permission.trim() }}
+              </span>
+            </ng-container>
+          </span>
+          <ng-template #noPermissions>
+            <span class="text-red-500 font-semibold">No Permissions</span>
+          </ng-template>
+        </td>
+
+        <td class="border px-4 py-2">
+          <div class="flex justify-center">
+            <button
+            (click)="editUser(user)"
+            class="bg-yellow-500 text-white px-3 py-1 rounded mr-2"
+          >
+            Edit
+          </button>
+          <button
+            (click)="deleteUser(user.id)"
+            class="bg-red-500 text-white px-3 py-1 rounded"
+          >
+            Delete
+          </button>
+          </div>
         </td>
       </tr>
-    }@else {
-      <span class="text-gray-500 italic">No user found</span>
-    }
+      } @else {
+      <tr>
+        <td
+          colspan="5"
+          class="p-4 border border-gray-300 text-2xl rounded-lg shadow-md text-center py-6 text-red-500 font-bold italic"
+        >
+          No user found
+        </td>
+      </tr>
+      }
     </tbody>
   </table>
 
-  <app-user-popup-modal 
-    [user]="selectedUser" 
-    [isOpen]="isModalOpen" 
-    (closeModal)="closeModal()" 
-    (saveUser)="updateUser($event)">
+  <app-user-popup-modal
+    [user]="selectedUser"
+    [isOpen]="isModalOpen"
+    (closeModal)="closeModal()"
+    (saveUser)="updateUser($event)"
+  >
   </app-user-popup-modal>
 </div>

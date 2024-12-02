@@ -39,6 +39,9 @@ export class UserListComponent implements OnInit, OnChanges {
         this.users = users.map((user) => ({
           ...user,
           roles: Array.isArray(user.roles) ? user.roles : [user.roles], // Force roles to be an array
+          permissions: Array.isArray(user.permissions)
+            ? user.permissions
+            : [user.permissions], // Force permissions to be an array
         }));
         this.filteredUsers = this.users;
       },
@@ -58,6 +61,9 @@ export class UserListComponent implements OnInit, OnChanges {
           user.status.toLowerCase().includes(searchTerm.toLowerCase()) ||
           user.roles.some((role) =>
             role.toLowerCase().includes(searchTerm.toLowerCase())
+          ) ||
+          user.permissions.some((permission) =>
+            permission.toLowerCase().includes(searchTerm.toLowerCase())
           )
       );
     }
@@ -67,12 +73,31 @@ export class UserListComponent implements OnInit, OnChanges {
     this.isModalOpen = false;
   }
 
+  // updateUser(user: User) {
+  //   this.userService.updateUser(user).subscribe(() => {
+  //     this.loadUsers();
+  //     this.closeModal();
+  //   });
+  // }
+
   updateUser(user: User) {
-    this.userService.updateUser(user).subscribe(() => {
+    const updatedUser = {
+      ...user,
+      roles: typeof user.roles === 'string' 
+        ? (user.roles as string).split(',').map(role => role.trim()) 
+        : user.roles,
+      permissions: typeof user.permissions === 'string' 
+        ? (user.permissions as string).split(',').map(permission => permission.trim()) 
+        : user.permissions
+    };
+  
+    this.userService.updateUser(updatedUser).subscribe(() => {
       this.loadUsers();
       this.closeModal();
     });
   }
+  
+  createUser(){}
 
   editUser(user: User) {
     this.selectedUser = { ...user };

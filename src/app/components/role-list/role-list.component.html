@@ -1,32 +1,59 @@
-<div class=" min-h-screen p-6 shadow-lg rounded-lg ">
-  <header class="mb-8 border-b-2 border-gray-200 pb-4">
-    <h1 class="text-3xl font-bold text-gray-800">Role Management</h1>
+<div class="min-h-screen p-8 bg-gray-50 rounded-lg shadow-md">
+  <!-- Header -->
+  <header class="mb-8 border-b-2 border-gray-300 pb-4">
+    <h1 class="text-4xl font-bold text-gray-800">Role Management</h1>
   </header>
-  <table class="min-w-full leading-normal">
-    <thead>
-      <tr class="bg-gray-200">
-        <th class="py-3 px-5 text-left">Name</th>
-        <th class="py-3 px-5 text-left">Permissions</th>
-        <th class="py-3 px-5 text-left">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let role of roles; trackBy: trackByRoleId" class="border-b">
-        <td class="py-4 px-5">{{ role.name }}</td>
-        <td class="py-4 px-5">
-          <span *ngFor="let permission of role.permissions" class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
-            {{ permission.name }}
-          </span>
-        </td>
-        <td class="py-4 px-5">
-          <button (click)="editRole(role)" class="text-blue-600 hover:text-blue-900 mr-2">Edit</button>
-          <button (click)="deleteRole(role.id)" class="text-red-600 hover:text-red-900">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+
+  <!-- Role Table -->
+  <div class="overflow-auto rounded-lg shadow-sm">
+    <table class="min-w-full bg-white rounded-lg shadow-sm">
+      <thead class="bg-gray-800 text-white">
+        <tr>
+          <th class="py-4 px-6 text-left text-sm font-medium uppercase">Name</th>
+          <th class="py-4 px-6 text-left text-sm font-medium uppercase">Permissions</th>
+          <th class="py-4 px-6 text-left text-sm font-medium uppercase">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let role of roles; trackBy: trackByRoleId"
+          class="hover:bg-gray-100 border-b transition duration-300"
+        >
+          <td class="py-4 px-6 text-gray-700 font-medium">{{ role.name }}</td>
+          <td class="py-4 px-6">
+            <span
+              *ngFor="let permission of role.permissions"
+              class="bg-blue-100 text-blue-700 text-sm font-semibold mr-2 px-3 py-1 rounded-full inline-block"
+            >
+              {{ permission.name }}
+            </span>
+          </td>
+          <td class="py-4 px-6 flex space-x-4">
+            <button
+              (click)="editRole(role)"
+              class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-md shadow-md transition duration-300"
+            >
+              Edit
+            </button>
+            <button
+              (click)="deleteRole(role.id)"
+              class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md shadow-md transition duration-300"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="roles.length === 0">
+          <td colspan="3" class="py-6 text-center text-gray-500">
+            No roles available.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
+<!-- Role Popup Modal -->
 <app-role-popup-modal
   [role]="selectedRole"
   [isOpen]="isModalOpen"

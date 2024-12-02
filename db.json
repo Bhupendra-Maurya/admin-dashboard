@@ -1,22 +1,46 @@
 {
   "users": [
     {
-      "id": "2c59",
+      "id": "c41d",
+      "username": "Pritam",
+      "email": "pritam.das@example.com",
+      "status": "inactive",
+      "roles": [
+        "User"
+      ],
+      "permissions": [
+        "read",
+        "write",
+        "execute"
+      ]
+    },
+    {
+      "id": "aa8e",
+      "username": "Sanya Mishra",
+      "email": "sanya.m@example.com",
+      "status": "inactive",
+      "roles": [
+        "Hr",
+        "viewer"
+      ],
+      "permissions": [
+        "read",
+        "write",
+        "execute"
+      ]
+    },
+    {
+      "id": "cbd0",
       "username": "Bhupendra",
       "email": "bpmaurya24th@gmail.com",
       "status": "active",
       "roles": [
-        "Web developer",
-        "Software Engineer"
-      ]
-    },
-    {
-      "id": "0bb9",
-      "username": "Sanjay",
-      "email": "sanjay@gmail.com",
-      "status": "inactive",
-      "roles": [
-        "Admin"
+        "Admin",
+        "Dev"
+      ],
+      "permissions": [
+        "read",
+        "right"
       ]
     }
   ],

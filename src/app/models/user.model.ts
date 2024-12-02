@@ -3,7 +3,8 @@ export interface User {
     username: string;
     email: string;
     status: string;
-    roles: string[];
+    roles: any[];
+    permissions: any[];
   }
   
   export interface Role {

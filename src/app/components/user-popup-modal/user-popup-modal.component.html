@@ -1,29 +1,113 @@
-<div class="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center" *ngIf="isOpen">
-    <div class="bg-white p-6 rounded-md shadow-md w-1/3">
-      <h2 class="text-xl font-semibold mb-4">Edit User</h2>
-      <form (ngSubmit)="onSubmit()">
-        <div class="mb-4">
-          <label for="username" class="block">Username</label>
-          <input id="username" [(ngModel)]="user.username" name="username" class="w-full p-2 border border-gray-300 rounded" required />
+<div
+  class="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center"
+  *ngIf="isOpen"
+>
+  <div class="bg-white p-6 rounded-md shadow-md w-1/3">
+    <header class="mb-4 text-center">
+      <h1 class="text-2xl text-blue-600 font-bold">Edit User</h1>
+    </header>
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <!-- Username Field -->
+      <div class="mb-4">
+        <label for="username" class="block text-gray-700 font-medium mb-1">Username</label>
+        <input
+          id="username"
+          [(ngModel)]="user.username"
+          name="username"
+          #username="ngModel"
+          class="w-full border rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        />
+        <div *ngIf="username.invalid && username.touched" class="text-red-500 text-sm">
+          <span>Username is required.</span>
         </div>
-        <div class="mb-4">
-          <label for="email" class="block">Email</label>
-          <input id="email" [(ngModel)]="user.email" name="email" class="w-full p-2 border border-gray-300 rounded" required />
+      </div>
+
+      <!-- Email Field -->
+      <div class="mb-4">
+        <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
+        <input
+          id="email"
+          [(ngModel)]="user.email"
+          name="email"
+          #email="ngModel"
+          class="w-full border rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+          email
+        />
+        <div *ngIf="email.invalid && email.touched" class="text-red-500 text-sm">
+          <span *ngIf="email.errors?.['required']">Email is required.</span>
+          <span *ngIf="email.errors?.['email']">Enter a valid email.</span>
         </div>
-        <div class="mb-4">
-          <label for="status" class="block">Status</label>
-          <select id="status" [(ngModel)]="user.status" name="status" class="w-full p-2 border border-gray-300 rounded" required>
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
-          </select>
+      </div>
+
+      <!-- Status Field -->
+      <div class="mb-4">
+        <label for="status" class="block text-gray-700 font-medium mb-1">Status</label>
+        <select
+          id="status"
+          [(ngModel)]="user.status"
+          name="status"
+          #status="ngModel"
+          class="w-full border rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        >
+          <option disabled selected value="">Select Status</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+        <div *ngIf="status.invalid && status.touched" class="text-red-500 text-sm">
+          <span>Status is required.</span>
         </div>
-        <div class="mb-4">
-          <label for="roles" class="block">Roles</label>
-          <input id="roles" [(ngModel)]="user.roles" name="roles" class="w-full p-2 border border-gray-300 rounded" required/>
+      </div>
+
+      <!-- Roles Field -->
+      <div class="mb-4">
+        <label for="roles" class="block text-gray-700 font-medium mb-1">Roles</label>
+        <input
+          id="roles"
+          [(ngModel)]="user.roles"
+          name="roles"
+          #roles="ngModel"
+          class="w-full border rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        />
+        <div *ngIf="roles.invalid && roles.touched" class="text-red-500 text-sm">
+          <span>Roles are required.</span>
         </div>
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Save</button>
-        <button type="button" (click)="close()" class="bg-gray-500 text-white px-4 py-2 rounded ml-2">Cancel</button>
-      </form>
-    </div>
+      </div>
+
+      <!-- Permissions Field -->
+      <div class="mb-4">
+        <label for="permissions" class="block text-gray-700 font-medium mb-1">Permissions</label>
+        <input
+          id="roles"
+          [(ngModel)]="user.permissions"
+          name="permissions"
+          #permissions="ngModel"
+          class="w-full border rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        />
+        <div *ngIf="permissions.invalid && permissions.touched" class="text-red-500 text-sm">
+          <span>Permissions are required.</span>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <button
+        type="submit"
+        class="bg-blue-500 text-white px-4 py-2 rounded"
+        [disabled]="userForm.invalid"
+      >
+        Save
+      </button>
+      <button
+        type="button"
+        (click)="close()"
+        class="bg-gray-500 text-white px-4 py-2 rounded ml-2"
+      >
+        Cancel
+      </button>
+    </form>
   </div>
-  
+</div>

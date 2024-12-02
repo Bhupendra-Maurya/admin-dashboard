@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RoleListComponent } from '../role-list/role-list.component';
-import { UserListComponent } from '../user-list/user-list.component';
-import { UserFormComponent } from "../user-form/user-form.component";
+import { RouterLink, RouterLinkActive, RouterOutlet,  } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RoleListComponent, UserListComponent, UserFormComponent],
+  imports: [CommonModule,RouterOutlet,RouterLink,RouterLinkActive],
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent {}

@@ -11,7 +11,7 @@ export class UserFormComponent {
   user = {
     username: '',
     email: '',
-    status: 'active',
+    status: '',
     roles: ''
   };
 

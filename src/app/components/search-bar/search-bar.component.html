@@ -1,1 +1,8 @@
-<input type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="onSearch()" class="search-input">
+<div class="flex justify-center items-center">
+  <input 
+    type="text" 
+    placeholder="Search..."  
+    (input)="onSearch($event)" 
+    class="w-2/3  px-4 py-2 mb-2 border border-gray-300 rounded-full text-lg shadow-md outline-none focus:border-green-500 focus:ring-2 transition-all duration-200 transform"
+  >
+</div>

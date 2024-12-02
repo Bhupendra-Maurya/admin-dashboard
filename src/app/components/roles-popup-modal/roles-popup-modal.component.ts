@@ -6,8 +6,7 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-role-popup-modal',
   imports:[FormsModule,NgIf],
-  templateUrl: './roles-popup-modal.component.html',
-  styleUrls: ['./roles-popup-modal.component.css'],
+  templateUrl: './roles-popup-modal.component.html'
 })
 export class RolesPopupModalComponent {
   @Input() role: Role | null = null;

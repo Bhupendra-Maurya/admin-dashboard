@@ -1,12 +1,30 @@
-<div class="container mx-auto p-6 bg-gray-100 min-h-screen">
-  <header
-    class="mb-8 border-b-2 border-gray-300 pb-4 flex justify-between items-center"
-  >
-    <h1 class="text-4xl font-bold text-gray-800">Admin Dashboard</h1>
-  </header>
-  <main class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <app-user-form></app-user-form>
-    <app-user-list></app-user-list>
-    <app-role-list></app-role-list>
-  </main>
+<div class="flex">
+  <aside class="w-auto bg-gray-800 text-white min-h-screen">
+    <div class="p-4 text-2xl font-bold border-b border-gray-700">
+      Admin Panel
+    </div>
+    <nav class="mt-4">
+      <ul>
+        <li class="px-4 py-2 hover:bg-gray-700 cursor-pointer">
+          <a routerLink="/users" routerLinkActive="font-bold">
+            Manage Users
+          </a>
+        </li>
+        <li class="px-4 py-2 hover:bg-gray-700 cursor-pointer">
+          <a routerLink="/roles" routerLinkActive="font-bold">
+            Manage Roles
+          </a>
+        </li>
+        <li class="px-4 py-2 hover:bg-gray-700 cursor-pointer">
+          <a routerLink="/adduser" routerLinkActive="font-bold">
+            Create New User
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <!-- Router outlet to display the component content -->
+  <div class="flex-1 p-6">
+    <router-outlet></router-outlet>
+  </div>
 </div>

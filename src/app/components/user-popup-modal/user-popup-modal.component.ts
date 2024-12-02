@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from '../../models/user.model';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
@@ -8,15 +8,11 @@ import { NgIf } from '@angular/common';
   imports:[FormsModule,NgIf],
   templateUrl: './user-popup-modal.component.html',
 })
-export class UserPopupModalComponent implements OnChanges{
+export class UserPopupModalComponent{
   @Input() user!: User;
   @Input() isOpen = false;
   @Output() closeModal = new EventEmitter<void>();
   @Output() saveUser = new EventEmitter<User>();
-
-  ngOnChanges(): void {
-      console.log(this.user)
-  }
   
   close() {
     this.closeModal.emit();

@@ -1,0 +1,89 @@
+{
+  "users": [
+    {
+      "id": "2c59",
+      "username": "Bhupendra",
+      "email": "bpmaurya24th@gmail.com",
+      "status": "active",
+      "roles": [
+        "Web developer",
+        "Software Engineer"
+      ]
+    },
+    {
+      "id": "0bb9",
+      "username": "Sanjay",
+      "email": "sanjay@gmail.com",
+      "status": "inactive",
+      "roles": [
+        "Admin"
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "id": "1",
+      "name": "Admin",
+      "permissions": [
+        {
+          "id": "1",
+          "name": "READ",
+          "description": "Can read data"
+        },
+        {
+          "id": "2",
+          "name": "WRITE",
+          "description": "Can write data"
+        },
+        {
+          "id": "3",
+          "name": "DELETE",
+          "description": "Can delete data"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Editor",
+      "permissions": [
+        {
+          "id": "1",
+          "name": "READ",
+          "description": "Can read data"
+        },
+        {
+          "id": "2",
+          "name": "WRITE",
+          "description": "Can edit content"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Viewer",
+      "permissions": [
+        {
+          "id": "1",
+          "name": "READ",
+          "description": "Can view content"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Moderator",
+      "permissions": [
+        {
+          "id": "1",
+          "name": "READ",
+          "description": "Can view content"
+        },
+        {
+          "id": "4",
+          "name": "MODERATE",
+          "description": "Can moderate content"
+        }
+      ]
+    }
+  ]
+}

@@ -12,14 +12,14 @@
         </div>
         <div class="mb-4">
           <label for="status" class="block">Status</label>
-          <select id="status" [(ngModel)]="user.isActive" name="status" class="w-full p-2 border border-gray-300 rounded">
-            <option [value]="true">Active</option>
-            <option [value]="false">Inactive</option>
+          <select id="status" [(ngModel)]="user.status" name="status" class="w-full p-2 border border-gray-300 rounded" required>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
           </select>
         </div>
         <div class="mb-4">
           <label for="roles" class="block">Roles</label>
-          <input id="roles" [(ngModel)]="user.roles" name="roles" class="w-full p-2 border border-gray-300 rounded" />
+          <input id="roles" [(ngModel)]="user.roles" name="roles" class="w-full p-2 border border-gray-300 rounded" required/>
         </div>
         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Save</button>
         <button type="button" (click)="close()" class="bg-gray-500 text-white px-4 py-2 rounded ml-2">Cancel</button>

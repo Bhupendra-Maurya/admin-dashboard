@@ -1,12 +1,13 @@
-<div class="container mx-auto p-6">
+<div class=" min-h-screen p-6 shadow-lg rounded-lg ">
   <header class="mb-8 border-b-2 border-gray-200 pb-4">
     <h1 class="text-3xl font-bold text-gray-800">User Management</h1>
   </header>
-
   <!-- Search Bar Component -->
-  <app-search-bar (searchChange)="filterUsers($event)"></app-search-bar>
+  <app-search-bar  (searchChange)="filterUsers($event)"
+ 
+  ></app-search-bar>
 
-  <table class="w-full table-auto border-collapse shadow-md">
+  <table class="min-w-full leading-normal mt-3">
     <thead class="bg-gray-800 text-white">
       <tr>
         <th class="px-4 py-2">Username</th>
@@ -17,20 +18,31 @@
       </tr>
     </thead>
     <tbody>
+      @if (filteredUsers.length > 0) {
       <tr *ngFor="let user of filteredUsers" class="hover:bg-gray-100">
         <td class="border px-4 py-2">{{ user.username }}</td>
         <td class="border px-4 py-2">{{ user.email }}</td>
-        <td class="border px-4 py-2">{{ user.isActive ? 'Active' : 'Inactive' }}</td>
+        <td class="border px-4 py-2 text-center">{{ user.status ? 'Active' : 'Inactive' }}</td>
         <td class="border px-4 py-2">
-          <span *ngFor="let role of user.roles" class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded-full mr-1">
-            {{ role }}
+          <span *ngIf="user.roles.length > 0; else noRoles">
+            <ng-container *ngFor="let role of user.roles">
+              <span class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded-full mr-1">
+                {{ role }}
+              </span>
+            </ng-container>
           </span>
+          <ng-template #noRoles>
+            <span class="text-gray-500 italic">No Roles</span>
+          </ng-template>
         </td>
-        <td class="border px-4 py-2">
+        <td class="border px-4 py-2 flex justify-center">
           <button (click)="editUser(user)" class="bg-yellow-500 text-white px-3 py-1 rounded mr-2">Edit</button>
           <button (click)="deleteUser(user.id)" class="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
         </td>
       </tr>
+    }@else {
+      <span class="text-gray-500 italic">No user found</span>
+    }
     </tbody>
   </table>
 

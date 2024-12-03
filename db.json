@@ -1,46 +1,18 @@
 {
   "users": [
     {
-      "id": "c41d",
-      "username": "Pritam",
-      "email": "pritam.das@example.com",
-      "status": "inactive",
-      "roles": [
-        "User"
-      ],
-      "permissions": [
-        "read",
-        "write",
-        "execute"
-      ]
-    },
-    {
-      "id": "aa8e",
-      "username": "Sanya Mishra",
-      "email": "sanya.m@example.com",
-      "status": "inactive",
-      "roles": [
-        "Hr",
-        "viewer"
-      ],
-      "permissions": [
-        "read",
-        "write",
-        "execute"
-      ]
-    },
-    {
-      "id": "cbd0",
-      "username": "Bhupendra",
+      "id": "e6fa",
+      "username": "Bhupendra Maurya",
       "email": "bpmaurya24th@gmail.com",
       "status": "active",
       "roles": [
-        "Admin",
-        "Dev"
+        "Web Developer",
+        "Software Engineer"
       ],
       "permissions": [
         "read",
-        "right"
+        "write",
+        "delete"
       ]
     }
   ],
@@ -50,19 +22,16 @@
       "name": "Admin",
       "permissions": [
         {
-          "id": "1",
-          "name": "READ",
-          "description": "Can read data"
+          "name": "READ"
         },
         {
-          "id": "2",
-          "name": "WRITE",
-          "description": "Can write data"
+          "name": "WRITE"
         },
         {
-          "id": "3",
-          "name": "DELETE",
-          "description": "Can delete data"
+          "name": "UPDATE"
+        },
+        {
+          "name": "DELETE"
         }
       ]
     },

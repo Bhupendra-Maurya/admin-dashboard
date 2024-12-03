@@ -1,88 +1,80 @@
-<div class="min-h-screen p-6 shadow-lg rounded-lg">
-  <header class="mb-8 border-b-2 border-gray-200 pb-4">
-    <h1 class="text-3xl font-bold text-gray-800">User Management</h1>
+<div class="min-h-screen p-4 sm:p-6 shadow-lg rounded-lg">
+  <header class="mb-6 sm:mb-8 border-b-2 border-gray-200 pb-4">
+    <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 text-center sm:text-left">User Management</h1>
   </header>
+
   <!-- Search Bar Component -->
   <app-search-bar (searchChange)="filterUsers($event)"></app-search-bar>
 
-  <table class="min-w-full leading-normal mt-3">
-    <thead class="bg-gray-800 text-white">
-      <tr>
-        <th class="px-4 py-2">Username</th>
-        <th class="px-4 py-2">Email</th>
-        <th class="px-4 py-2">Status</th>
-        <th class="px-4 py-2">Roles</th>
-        <th class="px-4 py-2">Permissions</th>
-        <th class="px-4 py-2">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      @if (filteredUsers.length > 0) {
-      <tr *ngFor="let user of filteredUsers" class="hover:bg-gray-100">
-        <td class="border px-4 py-2">{{ user.username }}</td>
-        <td class="border px-4 py-2">{{ user.email }}</td>
-        <td class="border px-4 py-2 text-center">
-          {{ user.status === "active" ? "Active" : "Inactive" }}
-        </td>
-        <td class="border px-4 py-2">
-          <span *ngIf="user.roles.length > 0; else noRoles">
-            <ng-container *ngFor="let role of user.roles">
-              <span
-                class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded-full mr-1"
-              >
-                {{ role }}
-              </span>
-            </ng-container>
-          </span>
-          <ng-template #noRoles>
-            <span class="text-red-500 font-semibold">No Roles</span>
-          </ng-template>
-        </td>
-        <td class="border px-4 py-2">
-          <span *ngIf="user.permissions.length > 0; else noPermissions">
-            <ng-container *ngFor="let permission of user.permissions">
-              <span
-                class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded-full mr-1"
-              >
-                {{ permission.trim() }}
-              </span>
-            </ng-container>
-          </span>
-          <ng-template #noPermissions>
-            <span class="text-red-500 font-semibold">No Permissions</span>
-          </ng-template>
-        </td>
+  <!-- Table Wrapper for Responsive Scroll -->
+  <div class="overflow-x-auto mt-4">
+    <table class="min-w-full leading-normal bg-white rounded-lg overflow-hidden shadow-md">
+      <thead class="bg-gray-800 text-white">
+        <tr class="text-xs sm:text-sm">
+          <th class="px-3 py-2 sm:px-4 sm:py-2">Username</th>
+          <th class="px-3 py-2 sm:px-4 sm:py-2">Email</th>
+          <th class="px-3 py-2 sm:px-4 sm:py-2">Status</th>
+          <th class="px-3 py-2 sm:px-4 sm:py-2">Roles</th>
+          <th class="px-3 py-2 sm:px-4 sm:py-2">Permissions</th>
+          <th class="px-3 py-2 sm:px-4 sm:py-2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (filteredUsers.length > 0) {
+        <tr *ngFor="let user of filteredUsers" class="hover:bg-gray-100">
+          <td class="border px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm">{{ user.username }}</td>
+          <td class="border px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm">{{ user.email }}</td>
+          <td class="border px-3 py-2 sm:px-4 sm:py-3 text-center text-xs sm:text-sm">
+            {{ user.status === "active" ? "Active" : "Inactive" }}
+          </td>
+          <td class="border px-3 py-2 sm:px-4 sm:py-3">
+            <span *ngIf="user.roles.length > 0; else noRoles">
+              <ng-container *ngFor="let role of user.roles">
+                <span class="inline-block bg-blue-500 text-white text-xs sm:text-sm px-2 py-1 rounded-full mr-1 mb-1">
+                  {{ role }}
+                </span>
+              </ng-container>
+            </span>
+            <ng-template #noRoles>
+              <span class="text-red-500 font-semibold text-xs sm:text-sm">No Roles</span>
+            </ng-template>
+          </td>
+          <td class="border px-3 py-2 sm:px-4 sm:py-3">
+            <span *ngIf="user.permissions.length > 0; else noPermissions">
+              <ng-container *ngFor="let permission of user.permissions">
+                <span class="inline-block bg-blue-500 text-white text-xs sm:text-sm px-2 py-1 rounded-full mr-1 mb-1">
+                  {{ permission.trim() }}
+                </span>
+              </ng-container>
+            </span>
+            <ng-template #noPermissions>
+              <span class="text-red-500 font-semibold text-xs sm:text-sm">No Permissions</span>
+            </ng-template>
+          </td>
 
-        <td class="border px-4 py-2">
-          <div class="flex justify-center">
-            <button
-            (click)="editUser(user)"
-            class="bg-yellow-500 text-white px-3 py-1 rounded mr-2"
-          >
-            Edit
-          </button>
-          <button
-            (click)="deleteUser(user.id)"
-            class="bg-red-500 text-white px-3 py-1 rounded"
-          >
-            Delete
-          </button>
-          </div>
-        </td>
-      </tr>
-      } @else {
-      <tr>
-        <td
-          colspan="5"
-          class="p-4 border border-gray-300 text-2xl rounded-lg shadow-md text-center py-6 text-red-500 font-bold italic"
-        >
-          No user found
-        </td>
-      </tr>
-      }
-    </tbody>
-  </table>
+          <td class="border px-3 py-2 sm:px-4 sm:py-3">
+            <div class="flex flex-col sm:flex-row justify-center items-center sm:space-x-2">
+              <button (click)="editUser(user)" class="bg-yellow-500 text-white text-xs sm:text-sm px-2 py-1 rounded mb-1 sm:mb-0">
+                Edit
+              </button>
+              <button (click)="deleteUser(user.id)" class="bg-red-500 text-white text-xs sm:text-sm px-2 py-1 rounded">
+                Delete
+              </button>
+            </div>
+          </td>
+        </tr>
+        } @else {
+        <tr>
+          <td colspan="6" class="p-4 border text-center py-6 text-red-500 font-bold italic text-sm sm:text-lg">
+            No user found
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 
+  <!-- User Modal Component -->
   <app-user-popup-modal
     [user]="selectedUser"
     [isOpen]="isModalOpen"

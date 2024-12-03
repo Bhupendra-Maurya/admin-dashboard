@@ -5,8 +5,8 @@ import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-role-popup-modal',
-  imports:[FormsModule,NgIf],
-  templateUrl: './roles-popup-modal.component.html'
+  imports: [FormsModule, NgIf],
+  templateUrl: './roles-popup-modal.component.html',
 })
 export class RolesPopupModalComponent {
   @Input() role: Role | null = null;
@@ -14,14 +14,15 @@ export class RolesPopupModalComponent {
   @Output() closeModal = new EventEmitter<void>();
   @Output() saveRole = new EventEmitter<Role>();
 
-  // Local variables
   roleName: string = '';
   rolePermissions: string = '';
 
   ngOnChanges() {
     if (this.role) {
       this.roleName = this.role.name;
-      this.rolePermissions = this.role.permissions.map(p => p.name).join(', '); // Convert Permission[] to string
+      this.rolePermissions = this.role.permissions
+        .map((p) => p.name)
+        .join(', '); // Convert Permission[] to string
     }
   }
 
@@ -33,9 +34,10 @@ export class RolesPopupModalComponent {
     if (this.role) {
       this.role.name = this.roleName;
       // Convert string back to Permission[]
-      this.role.permissions = this.rolePermissions.split(',')
-        .map(pName => ({ name: pName.trim() }) as Permission);
-      
+      this.role.permissions = this.rolePermissions
+        .split(',')
+        .map((pName) => ({ name: pName.trim() } as Permission));
+
       this.saveRole.emit(this.role);
     }
   }

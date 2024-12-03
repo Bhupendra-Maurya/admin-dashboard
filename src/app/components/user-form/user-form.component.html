@@ -6,20 +6,24 @@
     </header>
 
     <!-- Display success message-->
-    <div class="fixed top-4 left-1/2 flex justify-center transform -translate-x-1/5 z-10">
+    <div
+      class="fixed top-4 left-1/2 flex justify-center transform -translate-x-1/5 z-10"
+    >
       @if (successMessage) {
-        <div class="bg-green-500 text-white p-4 rounded-md shadow-md">
-          <h3 class="text-center font-medium">
-            {{ successMessage }}
-          </h3>
-        </div>
+      <div class="bg-green-500 text-white p-4 rounded-md shadow-md">
+        <h3 class="text-center font-medium">
+          {{ successMessage }}
+        </h3>
+      </div>
       }
     </div>
 
     <form (ngSubmit)="onSubmit()" #userForm="ngForm" class="space-y-5">
       <!-- Username Field -->
       <div>
-        <label for="username" class="block text-gray-700 font-medium mb-2">Username</label>
+        <label for="username" class="block text-gray-700 font-medium mb-2"
+          >Username</label
+        >
         <input
           type="text"
           id="username"
@@ -30,14 +34,19 @@
           required
           placeholder="Enter username"
         />
-        <div *ngIf="username.invalid && username.touched" class="text-red-500 mt-1 text-sm">
+        <div
+          *ngIf="username.invalid && username.touched"
+          class="text-red-500 mt-1 text-sm"
+        >
           Username is required.
         </div>
       </div>
 
       <!-- Email Field -->
       <div>
-        <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+        <label for="email" class="block text-gray-700 font-medium mb-2"
+          >Email</label
+        >
         <input
           type="email"
           id="email"
@@ -48,15 +57,22 @@
           required
           placeholder="Enter user email"
         />
-        <div *ngIf="email.invalid && email.touched" class="text-red-500 mt-1 text-sm">
+        <div
+          *ngIf="email.invalid && email.touched"
+          class="text-red-500 mt-1 text-sm"
+        >
           <span *ngIf="email.errors?.['required']">Email is required.</span>
-          <span *ngIf="email.errors?.['email']">Enter a valid email address.</span>
+          <span *ngIf="email.errors?.['email']"
+            >Enter a valid email address.</span
+          >
         </div>
       </div>
 
       <!-- Status Field -->
       <div>
-        <label for="status" class="block text-gray-700 font-medium mb-2">Status</label>
+        <label for="status" class="block text-gray-700 font-medium mb-2"
+          >Status</label
+        >
         <select
           id="status"
           name="status"
@@ -65,7 +81,7 @@
           #status="ngModel"
           required
         >
-          <option  disabled>Select Status</option>
+          <option disabled>Select Status</option>
           <option value="active">Active</option>
           <option value="inactive">Inactive</option>
         </select>
@@ -73,7 +89,9 @@
 
       <!-- Roles Field -->
       <div>
-        <label for="roles" class="block text-gray-700 font-medium mb-2">Roles</label>
+        <label for="roles" class="block text-gray-700 font-medium mb-2"
+          >Roles</label
+        >
         <input
           type="text"
           id="roles"
@@ -84,13 +102,18 @@
           placeholder="Separate roles with commas (e.g: admin,dev)"
           required
         />
-        <div *ngIf="roles.invalid && roles.touched" class="text-red-500 mt-1 text-sm">
+        <div
+          *ngIf="roles.invalid && roles.touched"
+          class="text-red-500 mt-1 text-sm"
+        >
           Roles are required.
         </div>
       </div>
       <!-- Permission Field -->
       <div>
-        <label for="permissions" class="block text-gray-700 font-medium mb-2">Permissions</label>
+        <label for="permissions" class="block text-gray-700 font-medium mb-2"
+          >Permissions</label
+        >
         <input
           type="text"
           id="permissions"
@@ -101,7 +124,10 @@
           placeholder="Separate permissions with commas (e.g: read,edit)"
           required
         />
-        <div *ngIf="permissions.invalid && permissions.touched" class="text-red-500 mt-1 text-sm">
+        <div
+          *ngIf="permissions.invalid && permissions.touched"
+          class="text-red-500 mt-1 text-sm"
+        >
           Permissions are required.
         </div>
       </div>

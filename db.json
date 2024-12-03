@@ -1,21 +1,260 @@
 {
-  "users": [
-    {
-      "id": "e6fa",
-      "username": "Bhupendra Maurya",
-      "email": "bpmaurya24th@gmail.com",
-      "status": "active",
-      "roles": [
-        "Web Developer",
-        "Software Engineer"
-      ],
-      "permissions": [
-        "read",
-        "write",
-        "delete"
-      ]
-    }
-  ],
+    "users": [
+      {
+        "id": "e6fa",
+        "username": "Bhupendra Maurya",
+        "email": "bpmaurya24th@gmail.com",
+        "status": "active",
+        "roles": [
+          "Web Developer",
+          "Software Engineer"
+        ],
+        "permissions": [
+          "read",
+          "write",
+          "delete"
+        ]
+      },
+      {
+        "id": "a7b2",
+        "username": "John Doe",
+        "email": "johndoe@example.com",
+        "status": "inactive",
+        "roles": [
+          "Admin",
+          "Manager"
+        ],
+        "permissions": [
+          "read",
+          "write"
+        ]
+      },
+      {
+        "id": "f8c9",
+        "username": "Jane Smith",
+        "email": "janesmith@example.com",
+        "status": "active",
+        "roles": [
+          "Editor"
+        ],
+        "permissions": [
+          "read",
+          "write"
+        ]
+      },
+      {
+        "id": "d0e1",
+        "username": "Alex Johnson",
+        "email": "alex.johnson@example.com",
+        "status": "active",
+        "roles": [
+          "Viewer"
+        ],
+        "permissions": [
+          "read"
+        ]
+      },
+      {
+        "id": "b3d4",
+        "username": "Emily Davis",
+        "email": "emily.davis@example.com",
+        "status": "inactive",
+        "roles": [
+          "Admin",
+          "HR"
+        ],
+        "permissions": [
+          "read",
+          "write",
+          "delete"
+        ]
+      },
+      {
+        "id": "c2a5",
+        "username": "Michael Brown",
+        "email": "michael.brown@example.com",
+        "status": "active",
+        "roles": [
+          "Moderator"
+        ],
+        "permissions": [
+          "read",
+          "moderate"
+        ]
+      },
+      {
+        "id": "a4f3",
+        "username": "Sophia Lee",
+        "email": "sophia.lee@example.com",
+        "status": "active",
+        "roles": [
+          "Editor"
+        ],
+        "permissions": [
+          "read",
+          "write"
+        ]
+      },
+      {
+        "id": "b9e6",
+        "username": "David Wilson",
+        "email": "david.wilson@example.com",
+        "status": "inactive",
+        "roles": [
+          "Admin"
+        ],
+        "permissions": [
+          "read",
+          "write",
+          "delete"
+        ]
+      },
+      {
+        "id": "f5d8",
+        "username": "Mia Taylor",
+        "email": "mia.taylor@example.com",
+        "status": "active",
+        "roles": [
+          "Viewer"
+        ],
+        "permissions": [
+          "read"
+        ]
+      },
+      {
+        "id": "c1a7",
+        "username": "James Harris",
+        "email": "james.harris@example.com",
+        "status": "inactive",
+        "roles": [
+          "Manager"
+        ],
+        "permissions": [
+          "read",
+          "write"
+        ]
+      },
+      {
+        "id": "d4e5",
+        "username": "Olivia Martin",
+        "email": "olivia.martin@example.com",
+        "status": "active",
+        "roles": [
+          "Editor"
+        ],
+        "permissions": [
+          "read",
+          "write"
+        ]
+      },
+      {
+        "id": "e2c6",
+        "username": "William Moore",
+        "email": "william.moore@example.com",
+        "status": "active",
+        "roles": [
+          "Viewer"
+        ],
+        "permissions": [
+          "read"
+        ]
+      },
+      {
+        "id": "a9d7",
+        "username": "Charlotte White",
+        "email": "charlotte.white@example.com",
+        "status": "inactive",
+        "roles": [
+          "Moderator"
+        ],
+        "permissions": [
+          "read",
+          "moderate"
+        ]
+      },
+      {
+        "id": "f7a9",
+        "username": "Lucas King",
+        "email": "lucas.king@example.com",
+        "status": "active",
+        "roles": [
+          "Software Engineer"
+        ],
+        "permissions": [
+          "read",
+          "write"
+        ]
+      },
+      {
+        "id": "b6e4",
+        "username": "Evelyn Scott",
+        "email": "evelyn.scott@example.com",
+        "status": "inactive",
+        "roles": [
+          "Admin",
+          "HR"
+        ],
+        "permissions": [
+          "read",
+          "write",
+          "delete"
+        ]
+      },
+      {
+        "id": "c5d0",
+        "username": "Liam Adams",
+        "email": "liam.adams@example.com",
+        "status": "active",
+        "roles": [
+          "Moderator"
+        ],
+        "permissions": [
+          "read",
+          "moderate"
+        ]
+      },
+      {
+        "id": "a2f4",
+        "username": "Ava Clark",
+        "email": "ava.clark@example.com",
+        "status": "inactive",
+        "roles": [
+          "Editor"
+        ],
+        "permissions": [
+          "read",
+          "write"
+        ]
+      },
+      {
+        "id": "d3e1",
+        "username": "Mason Lewis",
+        "email": "mason.lewis@example.com",
+        "status": "active",
+        "roles": [
+          "Web Developer"
+        ],
+        "permissions": [
+          "read",
+          "write"
+        ]
+      },
+      {
+        "id": "e4b7",
+        "username": "Isabella Walker",
+        "email": "isabella.walker@example.com",
+        "status": "inactive",
+        "roles": [
+          "Admin"
+        ],
+        "permissions": [
+          "read",
+          "write",
+          "delete"
+        ]
+      }
+    ],
+  
   "roles": [
     {
       "id": "1",

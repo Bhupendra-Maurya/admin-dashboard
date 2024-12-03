@@ -73,31 +73,28 @@ export class UserListComponent implements OnInit, OnChanges {
     this.isModalOpen = false;
   }
 
-  // updateUser(user: User) {
-  //   this.userService.updateUser(user).subscribe(() => {
-  //     this.loadUsers();
-  //     this.closeModal();
-  //   });
-  // }
-
   updateUser(user: User) {
     const updatedUser = {
       ...user,
-      roles: typeof user.roles === 'string' 
-        ? (user.roles as string).split(',').map(role => role.trim()) 
-        : user.roles,
-      permissions: typeof user.permissions === 'string' 
-        ? (user.permissions as string).split(',').map(permission => permission.trim()) 
-        : user.permissions
+      roles:
+        typeof user.roles === 'string'
+          ? (user.roles as string).split(',').map((role) => role.trim())
+          : user.roles,
+      permissions:
+        typeof user.permissions === 'string'
+          ? (user.permissions as string)
+              .split(',')
+              .map((permission) => permission.trim())
+          : user.permissions,
     };
-  
+
     this.userService.updateUser(updatedUser).subscribe(() => {
       this.loadUsers();
       this.closeModal();
     });
   }
-  
-  createUser(){}
+
+  createUser() {}
 
   editUser(user: User) {
     this.selectedUser = { ...user };

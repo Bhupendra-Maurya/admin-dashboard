@@ -1,15 +1,19 @@
 # Admin Dashboard
-![alt text](./public/user.png)
 
 This project is an Admin Dashboard application built using **Angular**. It allows administrators to manage users and roles, view data, and perform CRUD operations for both users and roles with associated permissions.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
 
-## Installation
+## How to Use the Application
+Watch this video to see how the app works:
+[Watch the video](https://drive.google.com/file/d/15gRiMnF27Er-ccwgoTnB8EmMFv_ABDjh/view?usp=sharing)
+
+[![My Project Demo](./public/user.png)](https://drive.google.com/file/d/15gRiMnF27Er-ccwgoTnB8EmMFv_ABDjh/view?usp=sharing)
+
+# Installation
 
 To get started with the project locally, follow the steps below.
 
-### Prerequisites
+## Prerequisites
 
 Ensure you have the following installed:
 
@@ -32,6 +36,10 @@ Ensure you have the following installed:
     ```bash
     cd admin-dashboard
     ```
+4. Instal JSON Server
+    ```bash
+    npm install -g json-server
+    ```
 ## Development server
 
 To start a local development server, run:
@@ -47,7 +55,8 @@ Once the server is running, open your browser and navigate to `http://localhost:
 To start json server, run:
 
 ```bash
-json-server --watch db.json
+json-server --watch db.json 
+json-server --watch db.json --port 5000
 ```
 
 Once the server is running, open your browser and navigate to 
@@ -181,7 +190,6 @@ This project is built with Angular and provides an interface for managing users 
 
 ## **Features**
 
-### **User Management**
 - **View Users**: List all users and their associated details (name, roles, status).
 - **Add User**: Create a new user by filling out a form with the user's name, role, and status.
 - **Edit User**: Modify user details such as name, role, and status.
@@ -196,11 +204,11 @@ This project is built with Angular and provides an interface for managing users 
 
 ## **Technologies Used**
 - **Angular**: Framework used for building the frontend.
-
+- **Json Server:** To store users data.
 - **Angular Forms Module**: Angular’s reactive approach for handling form input and validation.
 - **TypeScript**: Programming language used to write the code.
-- **HTML**: For structuring the website.
-- **Tailwind/CSS**: For styling the application’s interface.
+- **HTML**: For structuring the application’s interface.
+- **Tailwind**: For styling the application’s interface.
 
 
 ## **How It Works**
